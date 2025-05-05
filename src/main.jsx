@@ -4,7 +4,7 @@ import App from "./App";
 import "./styles/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <h1>
+    werdtfjn
+  </h1>
 );

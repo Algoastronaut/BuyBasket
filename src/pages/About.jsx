@@ -1,9 +1,19 @@
-const About = () => (
-    <section className="page">
-      <h2>About Us</h2>
-      <p>We are passionate about delivering great products to our customers.</p>
-    </section>
+import React from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import './About.css';
+
+const About = () => {
+  return (
+    <div className="about">
+      <Navbar />
+      <div className="about-content">
+        <h1>About Us</h1>
+        <p>We are an e-commerce platform focused on delivering quality products at affordable prices.</p>
+      </div>
+      <Footer />
+    </div>
   );
-  
-  export default About;
-  
+};
+
+export default About;

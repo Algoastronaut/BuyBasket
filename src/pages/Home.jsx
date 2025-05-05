@@ -1,9 +1,19 @@
-const Home = () => (
-    <section className="page">
-      <h2>Welcome to our Shop!</h2>
-      <p>Find the best products at amazing prices.</p>
-    </section>
+import React from 'react';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import ProductList from '../components/ProductList';
+import Footer from '../components/Footer';
+import './Home.css';
+
+const Home = () => {
+  return (
+    <div className="home">
+      <Navbar />
+      <Hero />
+      <ProductList products={[]} />
+      <Footer />
+    </div>
   );
-  
-  export default Home;
-  
+};
+
+export default Home;
