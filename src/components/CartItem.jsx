@@ -1,20 +1,23 @@
-import React from 'react';
-import './CartItem.css';
+import React, { useContext } from "react";
+import { CartContext } from "../context";
 
-const CartItem = ({ item, updateQuantity, removeItem }) => {
+const CartItem = ({ item }) => {
+  const { updateQuantity, removeFromCart } = useContext(CartContext);
+
   return (
     <div className="cart-item">
       <img src={item.image} alt={item.title} />
-      <div className="item-info">
+      <div>
         <h4>{item.title}</h4>
-        <p>${item.price}</p>
+        <p>${item.price} × {item.quantity}</p>
+        <input
+          type="number"
+          min="1"
+          value={item.quantity}
+          onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
+        />
+        <button onClick={() => removeFromCart(item.id)}>Remove</button>
       </div>
-      <div className="item-quantity">
-        <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-        <span>{item.quantity}</span>
-        <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
-      </div>
-      <button className="remove-btn" onClick={() => removeItem(item.id)}>Remove</button>
     </div>
   );
 };
