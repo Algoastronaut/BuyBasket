@@ -4,17 +4,17 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'fakestoreapi.com',
-          pathname: '/img/**',
-        },
-        {
-          protocol: 'https',
-          hostname: 'm.media-amazon.com',
+          hostname: '*.fakestoreapi.com',
           pathname: '/**',
         },
         {
           protocol: 'https',
-          hostname: 'cdn.fakestoreapi.com',
+          hostname: 'fakestoreapi.com',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'm.media-amazon.com',
           pathname: '/**',
         }
       ],
