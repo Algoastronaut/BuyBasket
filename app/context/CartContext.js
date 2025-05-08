@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useReducer } from 'react';
+import toast from 'react-hot-toast';
 
 const initialState = {
   items: [],
@@ -51,6 +52,9 @@ const cartReducer = (state, action) => {
         total: state.total + (item.price * quantityDiff),
       };
     }
+    case 'CHECKOUT': {
+      return initialState;
+    }
     default:
       return state;
   }
@@ -61,8 +65,39 @@ const CartContext = createContext(null);
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
+  const addItem = (item) => {
+    const existingItem = state.items.find(i => i.id === item.id);
+    dispatch({ type: 'ADD_ITEM', payload: item });
+    if (existingItem) {
+      toast.success('Item quantity updated in cart!');
+    } else {
+      toast.success('Item added to cart!');
+    }
+  };
+
+  const removeItem = (id) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: id });
+    toast.success('Item removed from cart!');
+  };
+
+  const updateQuantity = (id, quantity) => {
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
+    toast.success('Cart quantity updated!');
+  };
+
+  const checkout = () => {
+    dispatch({ type: 'CHECKOUT' });
+    toast.success('Order placed successfully!');
+  };
+
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ 
+      state, 
+      addItem, 
+      removeItem, 
+      updateQuantity, 
+      checkout 
+    }}>
       {children}
     </CartContext.Provider>
   );

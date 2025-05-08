@@ -6,14 +6,11 @@ import { ShoppingCart, Heart } from 'lucide-react';
 import { useState } from 'react';
 
 const ProductCard = ({ product }) => {
-  const { dispatch } = useCart();
+  const { addItem } = useCart();
   const [imageError, setImageError] = useState(false);
 
-  const addToCart = () => {
-    dispatch({
-      type: 'ADD_ITEM',
-      payload: { ...product, quantity: 1 },
-    });
+  const handleAddToCart = () => {
+    addItem(product);
   };
 
   return (
@@ -63,7 +60,7 @@ const ProductCard = ({ product }) => {
 
         {/* Add to Cart Button */}
         <button
-          onClick={addToCart}
+          onClick={handleAddToCart}
           className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-4 rounded-lg font-medium
                    flex items-center justify-center gap-2 hover:from-purple-700 hover:to-blue-700 
                    transform hover:-translate-y-1 transition-all duration-300"

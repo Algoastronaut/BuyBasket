@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from './components/Navbar';
 import { CartProvider } from './context/CartContext';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-gray-950">
       <body className={`${inter.className} min-h-screen bg-gradient-to-b from-gray-900 to-gray-950`}>
+        <Toaster position="top-right" />
         <CartProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
