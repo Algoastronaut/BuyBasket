@@ -35,83 +35,53 @@ export default function AboutPage() {
       </div>
 
       {/* Our Commitments */}
-      <div className="relative">
+      <div className="relative py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-600/10 to-blue-600/10 rounded-3xl" />
-        <div className="relative py-16 px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+        <div className="relative max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             Our Commitments
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <div className="group relative rounded-2xl overflow-hidden h-[28rem] shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=800&q=80"
-                alt="Fast Shipping"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform transition-all duration-500 group-hover:-translate-y-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-purple-600/20 rounded-lg group-hover:bg-purple-600/30 transition-colors">
-                      <Truck className="w-6 h-6 text-purple-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                      Fast Shipping
-                    </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-8 hover:bg-black/90 transition-all duration-300">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-purple-600/20 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Truck className="w-8 h-8 text-purple-400" />
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    Get your orders delivered quickly with our efficient shipping network. Track your package in real-time.
+                  <h3 className="text-2xl font-bold text-white mb-4">Fast Shipping</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Experience lightning-fast delivery with our optimized shipping network. Track your package in real-time and enjoy doorstep delivery.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="group relative rounded-2xl overflow-hidden h-[28rem] shadow-2xl hover:shadow-blue-500/20 transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80"
-                alt="Curated Selection"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform transition-all duration-500 group-hover:-translate-y-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-blue-600/20 rounded-lg group-hover:bg-blue-600/30 transition-colors">
-                      <Star className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                      Curated Selection
-                    </h3>
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-8 hover:bg-black/90 transition-all duration-300">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-blue-600/20 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Star className="w-8 h-8 text-blue-400" />
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    Carefully selected products that meet our high standards of quality and value.
+                  <h3 className="text-2xl font-bold text-white mb-4">Quality Products</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Every product is carefully selected to ensure the highest quality standards. Shop with confidence knowing you're getting the best.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="group relative rounded-2xl overflow-hidden h-[28rem] shadow-2xl hover:shadow-pink-500/20 transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
-                alt="Customer Satisfaction"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform transition-all duration-500 group-hover:-translate-y-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-pink-600/20 rounded-lg group-hover:bg-pink-600/30 transition-colors">
-                      <Heart className="w-6 h-6 text-pink-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                      Customer Satisfaction
-                    </h3>
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-8 hover:bg-black/90 transition-all duration-300">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-pink-600/20 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Heart className="w-8 h-8 text-pink-400" />
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    Your satisfaction is our priority. We're here to help you with any questions or concerns.
+                  <h3 className="text-2xl font-bold text-white mb-4">Customer First</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    Your satisfaction is our top priority. Our dedicated support team is always ready to assist you with any questions or concerns.
                   </p>
                 </div>
               </div>

@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { useCart } from '../context/CartContext';
-import { ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
+import WishlistButton from './WishlistButton';
 
 const ProductCard = ({ product }) => {
   const { addItem } = useCart();
@@ -34,9 +35,9 @@ const ProductCard = ({ product }) => {
           </div>
         )}
         {/* Wishlist Button */}
-        <button className="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-white shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Heart className="w-5 h-5 text-gray-600 hover:text-red-500 transition-colors" />
-        </button>
+        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <WishlistButton product={product} />
+        </div>
       </div>
 
       {/* Content */}

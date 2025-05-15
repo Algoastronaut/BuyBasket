@@ -2,70 +2,83 @@
 
 import { useCart } from '../context/CartContext';
 import Image from 'next/image';
+import { Minus, Plus, Trash2 } from 'lucide-react';
 
 export default function CartPage() {
   const { state, removeItem, updateQuantity, checkout } = useCart();
 
   if (state.items.length === 0) {
     return (
-      <div className="text-center py-16">
-        <h2 className="text-2xl font-semibold text-gray-900">Your cart is empty</h2>
-        <p className="mt-2 text-gray-600">Add some products to your cart to see them here.</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center">
+        <h2 className="text-3xl font-bold text-white mb-4">Your cart is empty</h2>
+        <p className="text-gray-300 mb-8">Add some products to your cart to see them here.</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8">
-      <h1 className="text-3xl font-bold text-gray-900">Shopping Cart</h1>
-      <div className="space-y-4">
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-white mb-8">Shopping Cart</h1>
+      <div className="space-y-6">
         {state.items.map((item) => (
-          <div key={item.id} className="flex items-center gap-4 bg-white p-4 rounded-lg shadow">
-            <div className="relative h-24 w-24 flex-shrink-0">
+          <div 
+            key={item.id} 
+            className="flex items-center gap-6 bg-white/5 backdrop-blur-sm p-6 rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="relative h-24 w-24 flex-shrink-0 rounded-lg overflow-hidden">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover rounded"
+                className="object-cover"
               />
             </div>
             <div className="flex-grow">
-              <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
-              <p className="text-gray-600">${item.price.toFixed(2)}</p>
+              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+              <p className="text-purple-400 font-medium">${item.price.toFixed(2)}</p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 bg-white/10 rounded-lg p-2">
+                <button
+                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  className="p-1 rounded-md hover:bg-white/20 transition-colors text-white"
+                  disabled={item.quantity <= 1}
+                >
+                  <Minus className="w-5 h-5" />
+                </button>
+                <span className="text-white font-medium min-w-[2rem] text-center">
+                  {item.quantity}
+                </span>
+                <button
+                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  className="p-1 rounded-md hover:bg-white/20 transition-colors text-white"
+                >
+                  <Plus className="w-5 h-5" />
+                </button>
+              </div>
               <button
-                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="p-1 rounded bg-gray-100 hover:bg-gray-200"
+                onClick={() => removeItem(item.id)}
+                className="p-2 text-gray-400 hover:text-red-400 transition-colors"
+                aria-label="Remove item"
               >
-                -
-              </button>
-              <span className="w-8 text-center">{item.quantity}</span>
-              <button
-                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="p-1 rounded bg-gray-100 hover:bg-gray-200"
-              >
-                +
+                <Trash2 className="w-5 h-5" />
               </button>
             </div>
-            <button
-              onClick={() => removeItem(item.id)}
-              className="p-2 text-red-600 hover:text-red-800"
-            >
-              Remove
-            </button>
           </div>
         ))}
       </div>
-      <div className="mt-8">
-        <div className="text-xl font-bold mb-4">
-          Total: ${state.total.toFixed(2)}
+      <div className="mt-8 p-6 bg-white/5 backdrop-blur-sm rounded-xl">
+        <div className="flex justify-between items-center mb-6">
+          <span className="text-xl text-gray-300">Total:</span>
+          <span className="text-2xl font-bold text-white">${state.total.toFixed(2)}</span>
         </div>
         <button
           onClick={checkout}
-          className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
+          className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium
+                   hover:from-purple-700 hover:to-blue-700 transform hover:-translate-y-1 
+                   transition-all duration-300 flex items-center justify-center gap-2"
         >
-          Checkout
+          Proceed to Checkout
         </button>
       </div>
     </div>

@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { ShoppingCart, ShoppingBasket } from 'lucide-react';
+import { ShoppingCart, ShoppingBasket, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 
 const Navbar = () => {
   const { state } = useCart();
+  const { wishlist } = useWishlist();
   const itemCount = state.items.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -48,6 +50,17 @@ const Navbar = () => {
             >
               About
               <span className="absolute inset-x-0 bottom-0 h-0.5 bg-yellow-300 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+            </Link>
+            <Link 
+              href="/wishlist" 
+              className="relative text-gray-300 hover:text-yellow-300 transition-colors group"
+            >
+              <Heart className="w-6 h-6" />
+              {wishlist.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-pink-500 text-gray-900 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold animate-bounce">
+                  {wishlist.length}
+                </span>
+              )}
             </Link>
             
             {/* Cart Icon */}
