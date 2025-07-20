@@ -4,11 +4,20 @@ import Link from 'next/link';
 import { ShoppingCart, ShoppingBasket, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
+import { useAuth } from '../context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const { state } = useCart();
   const { wishlist } = useWishlist();
+  const { user, logout, loading } = useAuth();
   const itemCount = state.items.reduce((total, item) => total + item.quantity, 0);
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/');
+  };
 
   return (
     <nav className="bg-gradient-to-r from-gray-900 via-purple-900 to-blue-900 shadow-lg relative">
@@ -52,6 +61,13 @@ const Navbar = () => {
               <span className="absolute inset-x-0 bottom-0 h-0.5 bg-yellow-300 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
             </Link>
             <Link 
+              href="/blog" 
+              className="text-gray-300 hover:text-yellow-300 transition-colors relative group"
+            >
+              Blog
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-yellow-300 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+            </Link>
+            <Link 
               href="/wishlist" 
               className="relative text-gray-300 hover:text-yellow-300 transition-colors group"
             >
@@ -62,7 +78,6 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
-            
             {/* Cart Icon */}
             <Link 
               href="/cart" 
@@ -77,6 +92,24 @@ const Navbar = () => {
                 )}
               </div>
             </Link>
+            {/* Login/Logout Button */}
+            {!loading && (
+              user ? (
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-300 hover:text-yellow-300 transition-colors px-4 py-2 rounded-lg border border-yellow-300 ml-2"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  href="/login"
+                  className="text-gray-300 hover:text-yellow-300 transition-colors px-4 py-2 rounded-lg border border-yellow-300 ml-2"
+                >
+                  Login
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>

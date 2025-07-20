@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './context/AuthContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,19 +20,21 @@ export default function RootLayout({ children }) {
         <Toaster position="top-right" />
         <CartProvider>
           <WishlistProvider>
-            <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {children}
-              </main>
-              <footer className="bg-gray-900 text-gray-300 py-8 mt-16">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="text-center">
-                    <p>© 2024 BuyBasket. All rights reserved.</p>
+            <AuthProvider>
+              <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                  {children}
+                </main>
+                <footer className="bg-gray-900 text-gray-300 py-8 mt-16">
+                  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                      <p>© 2024 BuyBasket. All rights reserved.</p>
+                    </div>
                   </div>
-                </div>
-              </footer>
-            </div>
+                </footer>
+              </div>
+            </AuthProvider>
           </WishlistProvider>
         </CartProvider>
       </body>

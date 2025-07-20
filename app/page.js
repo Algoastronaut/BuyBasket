@@ -49,52 +49,72 @@ export default function Home() {
 
       {/* Quick Benefits */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-purple-600/20 rounded-lg">
-              <ShoppingBag className="w-6 h-6 text-purple-400" />
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+          <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-6 hover:bg-black/90 transition-all duration-300">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-600/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <ShoppingBag className="w-6 h-6 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Wide Selection</h3>
+                <p className="text-gray-300 text-sm">
+                  Browse through thousands of products across multiple categories
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-white">Wide Selection</h3>
           </div>
-          <p className="text-gray-300">
-            Browse through thousands of products across multiple categories
-          </p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-blue-600/20 rounded-lg">
-              <CreditCard className="w-6 h-6 text-blue-400" />
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+          <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-6 hover:bg-black/90 transition-all duration-300">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-600/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <CreditCard className="w-6 h-6 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Easy Payments</h3>
+                <p className="text-gray-300 text-sm">
+                  Multiple payment options with secure checkout process
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-white">Easy Payments</h3>
           </div>
-          <p className="text-gray-300">
-            Multiple payment options with secure checkout process
-          </p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-green-600/20 rounded-lg">
-              <Shield className="w-6 h-6 text-green-400" />
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+          <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-6 hover:bg-black/90 transition-all duration-300">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-600/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-6 h-6 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Secure Shopping</h3>
+                <p className="text-gray-300 text-sm">
+                  Your data is protected with industry-standard security
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-white">Secure Shopping</h3>
           </div>
-          <p className="text-gray-300">
-            Your data is protected with industry-standard security
-          </p>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-yellow-600/20 rounded-lg">
-              <Sparkles className="w-6 h-6 text-yellow-400" />
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+          <div className="relative bg-black/80 backdrop-blur-sm rounded-xl p-6 hover:bg-black/90 transition-all duration-300">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-600/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-6 h-6 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Best Deals</h3>
+                <p className="text-gray-300 text-sm">
+                  Regular discounts and special offers for our customers
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-white">Best Deals</h3>
           </div>
-          <p className="text-gray-300">
-            Regular discounts and special offers for our customers
-          </p>
         </div>
       </div>
 
@@ -105,7 +125,12 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div key={product.id} className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-black/80 backdrop-blur-sm rounded-xl overflow-hidden">
+                <ProductCard product={product} />
+              </div>
+            </div>
           ))}
         </div>
       </div>
