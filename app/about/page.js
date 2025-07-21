@@ -26,10 +26,10 @@ export default function AboutPage() {
         </h2>
         <div className="prose prose-lg prose-invert mx-auto">
           <p>
-            Founded in 2023, BuyBasket emerged from a simple yet powerful idea: to create a shopping experience that's both delightful and trustworthy. We believe that online shopping should be more than just transactions—it should be an experience that customers look forward to.
+            Founded in 2023, BuyBasket emerged from a simple yet powerful idea: to create a shopping experience that&apos;s both delightful and trustworthy. We believe that online shopping should be more than just transactions—it should be an experience that customers look forward to.
           </p>
           <p>
-            Our journey began with a small team of passionate individuals who shared a common vision: to revolutionize the way people shop online. Today, we're proud to serve thousands of customers worldwide, offering a carefully curated selection of products that meet our high standards of quality and value.
+            Our journey began with a small team of passionate individuals who shared a common vision: to revolutionize the way people shop online. Today, we&apos;re proud to serve thousands of customers worldwide, offering a carefully curated selection of products that meet our high standards of quality and value.
           </p>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">Quality Products</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    Every product is carefully selected to ensure the highest quality standards. Shop with confidence knowing you're getting the best.
+                    Every product is carefully selected to ensure the highest quality standards. Shop with confidence knowing you&apos;re getting the best.
                   </p>
                 </div>
               </div>
