@@ -5,17 +5,32 @@ import { useCart } from '../context/CartContext';
 import { ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import WishlistButton from './WishlistButton';
+import { useAuth } from '../context/AuthContext';
+import { toast } from 'react-hot-toast';
 
 const ProductCard = ({ product }) => {
   const { addItem } = useCart();
+  const { user } = useAuth();
   const [imageError, setImageError] = useState(false);
 
   const handleAddToCart = () => {
+    if (!user) {
+      toast.error('Sign in first to add to cart!', {
+        duration: 2000,
+        position: 'top-center',
+        style: {
+          background: '#4F46E5',
+          color: '#fff',
+          borderRadius: '8px',
+        },
+      });
+      return;
+    }
     addItem(product);
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+    <div className="overflow-hidden group transition-all duration-300">
       {/* Image Container */}
       <div className="relative h-64 w-full overflow-hidden bg-gray-100">
         <Image
@@ -50,11 +65,11 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Title and Price */}
-        <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 min-h-[3.5rem]">
+        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 min-h-[3.5rem]">
           {product.title}
         </h3>
         <div className="flex items-center justify-between mb-4">
-          <p className="text-2xl font-bold text-blue-600">
+          <p className="text-2xl font-bold text-purple-400">
             ${product.price.toFixed(2)}
           </p>
         </div>

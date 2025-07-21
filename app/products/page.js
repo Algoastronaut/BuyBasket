@@ -36,7 +36,7 @@ export default async function ProductsPage() {
               Our Products
             </h1>
             <p className="text-lg text-gray-100">
-              Please try again later. We're experiencing technical difficulties.
+              Please try again later. We&apos;re experiencing technical difficulties.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default async function ProductsPage() {
 
       {/* Categories Filter */}
       <div className="flex overflow-x-auto pb-4 mb-6 gap-4 scrollbar-hide">
-        {['All', 'Electronics', 'Jewelry', "Men's Clothing", "Women's Clothing"].map((category) => (
+        {['All', 'Electronics', 'Jewelry', "Men&apos;s Clothing", "Women&apos;s Clothing"].map((category) => (
           <button
             key={category}
             className="px-6 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 whitespace-nowrap transition-colors"
